@@ -16,7 +16,7 @@ class User(db.Model):
         cascade='all, delete-orphan'
     )
     def __repr__(self):
-        return f'<User {self.username}>'
+        return f'<User {self.username!r}>'
 
 class ReadingEntry(db.Model):
     __tablename__ = 'reading_entries'
