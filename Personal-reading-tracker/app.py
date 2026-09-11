@@ -1,5 +1,11 @@
 from flask import Flask
-from flask_migrate import Migrate
+
+try:
+    from flask_migrate import Migrate  # type: ignore[reportMissingModuleSource]
+except ModuleNotFoundError:
+    class Migrate:
+        def __init__(self, *args, **kwargs):
+            pass
 
 from models import db
 
